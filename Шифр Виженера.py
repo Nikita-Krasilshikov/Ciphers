@@ -13,10 +13,12 @@ def crypt(text: str, key: str, func):
     return res
 
 
+# Шифратор
 def encrypt(text: str, key: str) -> str:
     return crypt(text, key, lambda sym_pos, key_pos, alphabet: alphabet[(sym_pos + key_pos) % len(alphabet)])
 
 
+# Дешифратор
 def decrypt(text: str, key: str) -> str:
     return crypt(text, key, lambda sym_pos, key_pos, alphabet: alphabet[(sym_pos - key_pos) % len(alphabet)])
 
