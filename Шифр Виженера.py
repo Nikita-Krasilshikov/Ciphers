@@ -22,4 +22,15 @@ def decrypt(text: str, key: str) -> str:
 
 
 key = open('key.txt').read()
-print(decrypt(encrypt(open('input.txt').read(), key), key))
+print(f'Ключ: {key}')
+
+text = open('input.txt').read()
+print(f'Текст для шифровки: {text}')
+
+encrypt_text = encrypt(text, key)
+print(f'Зашифрованный текст: {encrypt_text}')
+
+open('output.txt', 'w').write(encrypt_text)
+
+decrypt_text = decrypt(open('output.txt').read(), key)
+print(f'Расшифрованный текст: {decrypt_text}')
